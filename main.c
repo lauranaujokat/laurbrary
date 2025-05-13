@@ -11,13 +11,11 @@ int main() {
 
     vector* vec = malloc(sizeof(vector));
     vector_init(vec);
-    // for (int i = 0; i < 1000000; i++) {
+    // for (int i = 0; i < 100000000; i++) {
     //     head = linked_list_append(head, i);
-    //     printf("%d\n", i);
     // }
-    for (int i = 0; i < 1000000; i++) {
+    for (size_t i = 0; i < 1000000000; i++) {
         vector_add_item(vec, i);
-        printf("it: %d\n", i);
     }
 
 
