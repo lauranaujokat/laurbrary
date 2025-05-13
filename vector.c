@@ -1,6 +1,6 @@
-#include <stdlib.h>
 #include "vector.h"
-
+#include <stdio.h>
+#include <stdlib.h>
 
 void vector_init(vector* vector) {
     int default_size = 16;
@@ -10,12 +10,11 @@ void vector_init(vector* vector) {
 };
 
 void vector_add_item(vector* vector, int item) {
-    int* array = vector->array;
-    if (vector->size < vector->items + 1) {
+    if (vector->size == vector->items) {
         vector->size = vector->items * 2;
-        array = realloc(array, vector->size);
+        vector->array = realloc(vector->array, vector->size * sizeof(int));
     }
-    array[vector->items] = item;
+    vector->array[vector->items] = item;
     vector->items++;
 };
 void vector_pop(vector* vector) {
@@ -28,4 +27,3 @@ void vector_pop(vector* vector) {
         vector->array = realloc(vector->array, vector->size * sizeof(int));
     };
 }
-
